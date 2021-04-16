@@ -88,6 +88,9 @@ def signup():
             firstName = form["first_name"]
             lastName = form["last_name"]
             email = form["email"]
+            location= form["location"]
+            biography = form["biography"]
+            photo = form["photo"]
         except KeyError:
             return make_response(
                 "Error on Server",
@@ -99,10 +102,10 @@ def signup():
             last_name=lastName,
             username=username.lower(),
             password=password,
-            biography=None,
+            biography=biography,
             email=email,
-            photo=None,
-            location=None,
+            photo=photo,
+            location=location,
         )
 
         db.session.add(user)
